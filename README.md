@@ -1,7 +1,7 @@
 # Flutter Clock Application
---------------------------------------------------<br>
+---------------------------------------------------------<br>
 Time is the most valuable thing a person can spend.<br>
---------------------------------------------------<br>
+---------------------------------------------------------<br>
 <br>
 In this awesome project I did all the heavy works like:<br>
 1. Use of BLoC for State Management<br>
