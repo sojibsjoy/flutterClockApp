@@ -1,3 +1,4 @@
+import 'package:clock_bloc/bloc/locale_bloc.dart';
 import 'package:clock_bloc/l10n/l10n.dart';
 import 'package:clock_bloc/ui/screens/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -13,16 +14,26 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
-      supportedLocales: L10n.all,
-      localizationsDelegates: const [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
+    final _localeBloc = LocaleBloc();
+    return StreamBuilder<Locale>(
+      stream: _localeBloc.localStream,
+      initialData: L10n.all.first,
+      builder: (context, snapshot) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: HomeScreen(
+            localeBloc: _localeBloc,
+          ),
+          supportedLocales: L10n.all,
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+          ],
+          locale: snapshot.data,
+        );
+      },
     );
   }
 }

@@ -14,17 +14,19 @@ class TestMenuBloc {
   Stream<MenuType> get _eventStream => _eventStreamController.stream;
 
   TestMenuBloc() {
-    _eventStream.listen((event) {
-      if (event == MenuType.alarm) {
-        _selectedMenu = MenuType.alarm;
-      } else if (event == MenuType.clock) {
-        _selectedMenu = MenuType.clock;
-      } else if (event == MenuType.timer) {
-        _selectedMenu = MenuType.timer;
-      } else if (event == MenuType.stopwatch) {
-        _selectedMenu = MenuType.stopwatch;
-      }
-      _menuSink.add(_selectedMenu);
-    });
+    _eventStream.listen(
+      (event) {
+        if (event == MenuType.alarm) {
+          _selectedMenu = MenuType.alarm;
+        } else if (event == MenuType.clock) {
+          _selectedMenu = MenuType.clock;
+        } else if (event == MenuType.timer) {
+          _selectedMenu = MenuType.timer;
+        } else if (event == MenuType.stopwatch) {
+          _selectedMenu = MenuType.stopwatch;
+        }
+        _menuSink.add(_selectedMenu);
+      },
+    );
   }
 }
