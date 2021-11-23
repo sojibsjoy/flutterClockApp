@@ -2,6 +2,7 @@ import 'package:clock_bloc/constants/colors.dart';
 import 'package:clock_bloc/ui/design/clock_view.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ClockPage extends StatelessWidget {
   const ClockPage({Key? key}) : super(key: key);
@@ -16,6 +17,18 @@ class ClockPage extends StatelessWidget {
     if (!timezoneString.startsWith('-')) {
       offsetSign = '+';
     }
+    // adding localization on day of the week
+    var dayOfWeek = formattedDate.substring(0, 3);
+    var title = AppLocalizations.of(context)!.title;
+    if (title != "Clock") {
+      dayOfWeek = getDayOfWeek(dayOfWeek, title);
+    }
+
+    // adding localization on month
+    var month = formattedDate.substring(8);
+    if (title != "Clock") {
+      month = getMonth(month, title);
+    }
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 64),
       alignment: Alignment.center,
@@ -23,16 +36,17 @@ class ClockPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Flexible(
+          Flexible(
             flex: 1,
             fit: FlexFit.tight,
             child: Text(
-              'Clock',
-              style: TextStyle(
+              // title of the Clock Screen
+              title,
+              style: const TextStyle(
                 fontFamily: 'avenir',
                 fontWeight: FontWeight.w700,
                 color: Colors.white,
-                fontSize: 24,
+                fontSize: 30,
               ),
             ),
           ),
@@ -42,6 +56,7 @@ class ClockPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
+                  // Displaying Time
                   formattedTime,
                   style: const TextStyle(
                     fontFamily: 'avenir',
@@ -51,7 +66,8 @@ class ClockPage extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  formattedDate,
+                  // Displaying Date
+                  dayOfWeek + formattedDate.substring(3, 8) + month,
                   style: const TextStyle(
                     fontFamily: 'avenir',
                     fontWeight: FontWeight.w300,
@@ -78,9 +94,10 @@ class ClockPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Timezone',
-                  style: TextStyle(
+                Text(
+                  // Time Zone Text
+                  AppLocalizations.of(context)!.timezone,
+                  style: const TextStyle(
                     fontFamily: 'avenir',
                     fontWeight: FontWeight.w500,
                     color: Colors.white,
@@ -114,5 +131,145 @@ class ClockPage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  String getDayOfWeek(String dayOfWeek, String title) {
+    if (title == "ঘড়ি") {
+      switch (dayOfWeek) {
+        case "Sun":
+          dayOfWeek = "রবিবার";
+          break;
+        case "Mon":
+          dayOfWeek = "সোমবার";
+          break;
+        case "Tue":
+          dayOfWeek = "মঙ্গলবার";
+          break;
+        case "Wed":
+          dayOfWeek = "বুধবার";
+          break;
+        case "Thu":
+          dayOfWeek = "বৃহস্পতিবার";
+          break;
+        case "Fri":
+          dayOfWeek = "শুক্রবার";
+          break;
+        case "Sat":
+          dayOfWeek = "শনিবার";
+          break;
+        default:
+      }
+    } else if (title == "घड़ी") {
+      switch (dayOfWeek) {
+        case "Sun":
+          dayOfWeek = "रविवार";
+          break;
+        case "Mon":
+          dayOfWeek = "सोमवार";
+          break;
+        case "Tue":
+          dayOfWeek = "मंगलवार";
+          break;
+        case "Wed":
+          dayOfWeek = "बुधवार";
+          break;
+        case "Thu":
+          dayOfWeek = "गुरूवार";
+          break;
+        case "Fri":
+          dayOfWeek = "शुक्रवार";
+          break;
+        case "Sat":
+          dayOfWeek = "शनिवार";
+          break;
+        default:
+      }
+    }
+    return dayOfWeek;
+  }
+
+  String getMonth(String month, String title) {
+    if (title == "ঘড়ি") {
+      switch (month) {
+        case "Jan":
+          month = "জানুয়ারি";
+          break;
+        case "Feb":
+          month = "ফেব্রুয়ারি";
+          break;
+        case "Mar":
+          month = "মার্চ";
+          break;
+        case "Apr":
+          month = "এপ্রিল";
+          break;
+        case "May":
+          month = "মে";
+          break;
+        case "Jun":
+          month = "জুন";
+          break;
+        case "Jul":
+          month = "জুলাই";
+          break;
+        case "Aug":
+          month = "আগস্ট";
+          break;
+        case "Sep":
+          month = "সেপ্টেম্বর";
+          break;
+        case "Oct":
+          month = "অক্টোবর";
+          break;
+        case "Nov":
+          month = "নভেম্বর";
+          break;
+        case "Dec":
+          month = "ডিসেম্বর";
+          break;
+        default:
+      }
+    } else if (title == "घड़ी") {
+      switch (month) {
+        case "Jan":
+          month = "जनवरी";
+          break;
+        case "Feb":
+          month = "फ़रवरी";
+          break;
+        case "Mar":
+          month = "मार्च";
+          break;
+        case "Apr":
+          month = "अप्रैल";
+          break;
+        case "May":
+          month = "मई";
+          break;
+        case "Jun":
+          month = "जून";
+          break;
+        case "Jul":
+          month = "जुलाई";
+          break;
+        case "Aug":
+          month = "अगस्त";
+          break;
+        case "Sep":
+          month = "सितंबर";
+          break;
+        case "Oct":
+          month = "अक्टूबर";
+          break;
+        case "Nov":
+          month = "नवंबर";
+          break;
+        case "Dec":
+          month = "दिसंबर";
+          break;
+        default:
+      }
+    }
+    return month;
   }
 }

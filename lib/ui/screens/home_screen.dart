@@ -8,6 +8,7 @@ import 'package:clock_bloc/ui/pages/clock_page.dart';
 import 'package:clock_bloc/ui/pages/stopwatch_page.dart';
 import 'package:clock_bloc/ui/pages/timer_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -89,6 +90,41 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget buildMenuButton(MenuInfo currentMenuInfo, TestMenuBloc _testMenuBloc) {
+    var menuTitle = currentMenuInfo.title;
+    var title = AppLocalizations.of(context)!.title;
+    if (title == "ঘড়ি") {
+      switch (menuTitle) {
+        case "Clock":
+          menuTitle = "ঘড়ি";
+          break;
+        case "Alarm":
+          menuTitle = "এলার্ম";
+          break;
+        case "Timer":
+          menuTitle = "টাইমার";
+          break;
+        case "Stopwatch":
+          menuTitle = "স্টপওয়াচ";
+          break;
+        default:
+      }
+    } else if (title == "घड़ी") {
+      switch (menuTitle) {
+        case "Clock":
+          menuTitle = "घड़ी";
+          break;
+        case "Alarm":
+          menuTitle = "अलार्म";
+          break;
+        case "Timer":
+          menuTitle = "ठीक घड़ी";
+          break;
+        case "Stopwatch":
+          menuTitle = "स्टॉपवॉच";
+          break;
+        default:
+      }
+    }
     return TextButton(
       style: ButtonStyle(
         shape: MaterialStateProperty.all(
@@ -136,7 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 16,
           ),
           Text(
-            currentMenuInfo.title,
+            menuTitle,
             style: TextStyle(
               fontFamily: 'avenir',
               color: CustomColors.primaryTextColor,
