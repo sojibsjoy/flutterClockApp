@@ -66,10 +66,26 @@ class _HomeScreenState extends State<HomeScreen> {
                       Icons.language,
                       color: CustomColors.primaryTextColor,
                     ),
-                    label: Text(
-                      AppLocalizations.of(context)!.language,
-                      style: TextStyle(
-                        color: CustomColors.primaryTextColor,
+                    label: SizedBox(
+                      width: 75,
+                      height: 25,
+                      child: Center(
+                        child: Text(
+                          AppLocalizations.of(context)!.language,
+                          style: TextStyle(
+                            color: CustomColors.primaryTextColor,
+                          ),
+                        ),
+                      ),
+                    ),
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                      ),
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        CustomColors.menuBackgroundColor,
                       ),
                     ),
                   ),
@@ -108,8 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget buildMenuButton(MenuInfo currentMenuInfo, TestMenuBloc _testMenuBloc) {
     var menuTitle = currentMenuInfo.title;
-    var title = AppLocalizations.of(context)!.title;
-    menuTitle = getMenuTitle(menuTitle, title);
+    menuTitle = getMenuTitle(menuTitle);
     return TextButton(
       style: ButtonStyle(
         shape: MaterialStateProperty.all(
@@ -147,6 +162,7 @@ class _HomeScreenState extends State<HomeScreen> {
       },
       child: SizedBox(
         width: 100,
+        height: 95,
         child: Column(
           children: [
             Image.asset(
@@ -172,39 +188,21 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  String getMenuTitle(String menuTitle, String title) {
-    if (title == "ঘড়ি") {
-      switch (menuTitle) {
-        case "Clock":
-          menuTitle = "ঘড়ি";
-          break;
-        case "Alarm":
-          menuTitle = "এলার্ম";
-          break;
-        case "Timer":
-          menuTitle = "টাইমার";
-          break;
-        case "Stopwatch":
-          menuTitle = "স্টপওয়াচ";
-          break;
-        default:
-      }
-    } else if (title == "घड़ी") {
-      switch (menuTitle) {
-        case "Clock":
-          menuTitle = "घड़ी";
-          break;
-        case "Alarm":
-          menuTitle = "अलार्म";
-          break;
-        case "Timer":
-          menuTitle = "ठीक घड़ी";
-          break;
-        case "Stopwatch":
-          menuTitle = "स्टॉपवॉच";
-          break;
-        default:
-      }
+  String getMenuTitle(String menuTitle) {
+    switch (menuTitle) {
+      case "Clock":
+        menuTitle = AppLocalizations.of(context)!.clock_title;
+        break;
+      case "Alarm":
+        menuTitle = AppLocalizations.of(context)!.alarm_title;
+        break;
+      case "Timer":
+        menuTitle = AppLocalizations.of(context)!.timer_title;
+        break;
+      case "Stopwatch":
+        menuTitle = AppLocalizations.of(context)!.stopwatch_title;
+        break;
+      default:
     }
     return menuTitle;
   }

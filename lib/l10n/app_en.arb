@@ -3,10 +3,104 @@
     "@language": {
         "description": "The default language."
     },
-    "title": "Clock",
-    "@title": {
+
+    "clock_title": "Clock",
+    "@clock_title": {
         "description": "Title of the clock screen."
+    },    
+    "alarm_title": "Alarm",
+    "@alarm_title": {
+        "description": "Title of the alarm screen."
     },
+    "timer_title": "Timer",
+    "@timer_title": {
+        "description": "Title of the timer screen."
+    },    
+    "stopwatch_title": "Stopwatch",
+    "@stopwatch_title": {
+        "description": "Title of the stopwatch screen."
+    },
+
+    "sun": "Sun",
+    "@sun": {
+        "description": "Day 1"
+    },    
+    "mon": "Mon",
+    "@mon": {
+        "description": "Day 2"
+    },
+    "tue": "Tue",
+    "@tue": {
+        "description": "Day 3"
+    },
+    "wed": "Wed",
+    "@wed": {
+        "description": "Day 4"
+    },  
+    "thu": "Thu",
+    "@thu": {
+        "description": "Day 5"
+    },
+    "fri": "Fri",
+    "@fri": {
+        "description": "Day 6"
+    },
+    "sat": "Sat",
+    "@sat": {
+        "description": "Day 7"
+    },
+
+    "jan": "January",
+    "@jan": {
+        "description": "Month 1"
+    },    
+    "feb": "February",
+    "@feb": {
+        "description": "Month 2"
+    },
+    "mar": "March",
+    "@mar": {
+        "description": "Month 3"
+    },
+    "apr": "April",
+    "@apr": {
+        "description": "Month 4"
+    },    
+    "may": "May",
+    "@may": {
+        "description": "Month 5"
+    },
+    "jun": "June",
+    "@jun": {
+        "description": "Month 6"
+    },
+    "jul": "July",
+    "@jul": {
+        "description": "Month 7"
+    },  
+    "aug": "August",
+    "@aug": {
+        "description": "Month 8"
+    },
+    "sep": "September",
+    "@sep": {
+        "description": "Month 9"
+    },
+    "oct": "October",
+    "@oct": {
+        "description": "Month 10"
+    },
+    "nov": "November",
+    "@nov": {
+        "description": "Month 11"
+    },
+    "dec": "December",
+    "@dec": {
+        "description": "Month 12"
+    },
+
+
+
     "timezone": "Time Zone",
     "@timezone": {
         "description": "Time zone text of the clock screen."

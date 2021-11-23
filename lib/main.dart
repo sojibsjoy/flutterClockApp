@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'dart:ui' as ui;
+
 void main() {
   runApp(const MyApp());
 }
@@ -14,10 +16,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // getting device local
+    var defaultLan = ui.window.locale.languageCode;
     final _localeBloc = LocaleBloc();
     return StreamBuilder<Locale>(
       stream: _localeBloc.localStream,
-      initialData: L10n.all.first,
+      // initializing the default local of the application according to device locale
+      initialData: defaultLan == 'en'
+          ? L10n.all.first
+          : defaultLan == 'bn'
+              ? L10n.all[1]
+              : L10n.all.last,
       builder: (context, snapshot) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,

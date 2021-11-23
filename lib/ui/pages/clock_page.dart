@@ -19,15 +19,15 @@ class ClockPage extends StatelessWidget {
     }
     // adding localization on day of the week
     var dayOfWeek = formattedDate.substring(0, 3);
-    var title = AppLocalizations.of(context)!.title;
+    var title = AppLocalizations.of(context)!.clock_title;
     if (title != "Clock") {
-      dayOfWeek = getDayOfWeek(dayOfWeek, title);
+      dayOfWeek = getDayOfWeek(context, dayOfWeek);
     }
 
     // adding localization on month
     var month = formattedDate.substring(8);
     if (title != "Clock") {
-      month = getMonth(month, title);
+      month = getMonth(context, month);
     }
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 64),
@@ -133,142 +133,73 @@ class ClockPage extends StatelessWidget {
     );
   }
 
-  String getDayOfWeek(String dayOfWeek, String title) {
-    if (title == "ঘড়ি") {
-      switch (dayOfWeek) {
-        case "Sun":
-          dayOfWeek = "রবিবার";
-          break;
-        case "Mon":
-          dayOfWeek = "সোমবার";
-          break;
-        case "Tue":
-          dayOfWeek = "মঙ্গলবার";
-          break;
-        case "Wed":
-          dayOfWeek = "বুধবার";
-          break;
-        case "Thu":
-          dayOfWeek = "বৃহস্পতিবার";
-          break;
-        case "Fri":
-          dayOfWeek = "শুক্রবার";
-          break;
-        case "Sat":
-          dayOfWeek = "শনিবার";
-          break;
-        default:
-      }
-    } else if (title == "घड़ी") {
-      switch (dayOfWeek) {
-        case "Sun":
-          dayOfWeek = "रविवार";
-          break;
-        case "Mon":
-          dayOfWeek = "सोमवार";
-          break;
-        case "Tue":
-          dayOfWeek = "मंगलवार";
-          break;
-        case "Wed":
-          dayOfWeek = "बुधवार";
-          break;
-        case "Thu":
-          dayOfWeek = "गुरूवार";
-          break;
-        case "Fri":
-          dayOfWeek = "शुक्रवार";
-          break;
-        case "Sat":
-          dayOfWeek = "शनिवार";
-          break;
-        default:
-      }
+  String getDayOfWeek(BuildContext context, String dayOfWeek) {
+    switch (dayOfWeek) {
+      case "Sun":
+        dayOfWeek = AppLocalizations.of(context)!.sun;
+        break;
+      case "Mon":
+        dayOfWeek = AppLocalizations.of(context)!.mon;
+        break;
+      case "Tue":
+        dayOfWeek = AppLocalizations.of(context)!.tue;
+        break;
+      case "Wed":
+        dayOfWeek = AppLocalizations.of(context)!.wed;
+        break;
+      case "Thu":
+        dayOfWeek = AppLocalizations.of(context)!.thu;
+        break;
+      case "Fri":
+        dayOfWeek = AppLocalizations.of(context)!.fri;
+        break;
+      case "Sat":
+        dayOfWeek = AppLocalizations.of(context)!.sat;
+        break;
+      default:
     }
     return dayOfWeek;
   }
 
-  String getMonth(String month, String title) {
-    if (title == "ঘড়ি") {
-      switch (month) {
-        case "Jan":
-          month = "জানুয়ারি";
-          break;
-        case "Feb":
-          month = "ফেব্রুয়ারি";
-          break;
-        case "Mar":
-          month = "মার্চ";
-          break;
-        case "Apr":
-          month = "এপ্রিল";
-          break;
-        case "May":
-          month = "মে";
-          break;
-        case "Jun":
-          month = "জুন";
-          break;
-        case "Jul":
-          month = "জুলাই";
-          break;
-        case "Aug":
-          month = "আগস্ট";
-          break;
-        case "Sep":
-          month = "সেপ্টেম্বর";
-          break;
-        case "Oct":
-          month = "অক্টোবর";
-          break;
-        case "Nov":
-          month = "নভেম্বর";
-          break;
-        case "Dec":
-          month = "ডিসেম্বর";
-          break;
-        default:
-      }
-    } else if (title == "घड़ी") {
-      switch (month) {
-        case "Jan":
-          month = "जनवरी";
-          break;
-        case "Feb":
-          month = "फ़रवरी";
-          break;
-        case "Mar":
-          month = "मार्च";
-          break;
-        case "Apr":
-          month = "अप्रैल";
-          break;
-        case "May":
-          month = "मई";
-          break;
-        case "Jun":
-          month = "जून";
-          break;
-        case "Jul":
-          month = "जुलाई";
-          break;
-        case "Aug":
-          month = "अगस्त";
-          break;
-        case "Sep":
-          month = "सितंबर";
-          break;
-        case "Oct":
-          month = "अक्टूबर";
-          break;
-        case "Nov":
-          month = "नवंबर";
-          break;
-        case "Dec":
-          month = "दिसंबर";
-          break;
-        default:
-      }
+  String getMonth(BuildContext context, String month) {
+    switch (month) {
+      case "Jan":
+        month = AppLocalizations.of(context)!.jan;
+        break;
+      case "Feb":
+        month = AppLocalizations.of(context)!.feb;
+        break;
+      case "Mar":
+        month = AppLocalizations.of(context)!.mar;
+        break;
+      case "Apr":
+        month = AppLocalizations.of(context)!.apr;
+        break;
+      case "May":
+        month = AppLocalizations.of(context)!.may;
+        break;
+      case "Jun":
+        month = AppLocalizations.of(context)!.jun;
+        break;
+      case "Jul":
+        month = AppLocalizations.of(context)!.jul;
+        break;
+      case "Aug":
+        month = AppLocalizations.of(context)!.aug;
+        break;
+      case "Sep":
+        month = AppLocalizations.of(context)!.sep;
+        break;
+      case "Oct":
+        month = AppLocalizations.of(context)!.oct;
+        break;
+      case "Nov":
+        month = AppLocalizations.of(context)!.nov;
+        break;
+      case "Dec":
+        month = AppLocalizations.of(context)!.dec;
+        break;
+      default:
     }
     return month;
   }

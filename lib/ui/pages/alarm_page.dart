@@ -4,6 +4,7 @@ import 'package:clock_bloc/state_management/models/alarm_info.dart';
 // import 'package:clock_bloc/state_management/services/notification_api.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AlarmPage extends StatefulWidget {
   const AlarmPage({Key? key}) : super(key: key);
@@ -25,13 +26,13 @@ class _AlarmPageState extends State<AlarmPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Alarm',
-            style: TextStyle(
+          Text(
+            AppLocalizations.of(context)!.alarm_title,
+            style: const TextStyle(
               fontFamily: 'avenir',
               fontWeight: FontWeight.w700,
               color: Colors.white,
-              fontSize: 24,
+              fontSize: 30,
             ),
           ),
           Expanded(
