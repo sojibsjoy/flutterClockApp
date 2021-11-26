@@ -1,5 +1,6 @@
 import 'package:clock_bloc/bloc/locale_bloc.dart';
 import 'package:clock_bloc/l10n/l10n.dart';
+import 'package:clock_bloc/state_management/models/alarm_model.dart';
 import 'package:clock_bloc/ui/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -7,7 +8,13 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'dart:ui' as ui;
 
-void main() {
+import 'package:hive_flutter/adapters.dart';
+
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(AlarmAdapter());
+  await Hive.openBox<Alarm>('alarms');
   runApp(const MyApp());
 }
 

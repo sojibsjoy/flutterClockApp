@@ -35,13 +35,16 @@ dependencies:
   flutter_local_notifications: ^9.1.2
   flutter_localizations:
     sdk: flutter
+  hive: ^2.0.4
+  hive_flutter: ^1.1.0
   intl: ^0.17.0
-  sqflite: ^2.0.0+4
 
 dev_dependencies:
+  build_runner: ^2.1.5
   flutter_lints: ^1.0.0
   flutter_test:
     sdk: flutter
+  hive_generator: ^1.1.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

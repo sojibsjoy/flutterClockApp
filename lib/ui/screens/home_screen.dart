@@ -14,8 +14,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  LocaleBloc localeBloc;
-  HomeScreen({Key? key, required this.localeBloc}) : super(key: key);
+  final LocaleBloc localeBloc;
+  const HomeScreen({Key? key, required this.localeBloc}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
