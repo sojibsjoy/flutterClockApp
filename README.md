@@ -7,7 +7,7 @@ In this awesome project I did all the heavy works like:<br>
 1. Use of BLoC for State Management<br>
 2. Use of Flutter Local Notification<br>
 3. Use of Internationalization or Localization<br>
-4. Use of Local Database (SQflite Package)<br>
+4. Use of Local Database (Hive Package)<br>
 5. Use of Flutter CustomPainter (Canvas)<br>
 
 Here is the Clock Page View:<br>
