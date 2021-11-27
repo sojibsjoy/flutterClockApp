@@ -7,7 +7,7 @@ In this awesome project I did all the heavy works like:<br>
 1. Use of BLoC for State Management<br>
 2. Use of Flutter Local Notification<br>
 3. Use of Internationalization or Localization<br>
-4. Use of Local Database (SQflite Package)<br>
+4. Use of Local Database (Hive Package)<br>
 5. Use of Flutter CustomPainter (Canvas)<br>
 
 Here is the Clock Page View:<br>
@@ -26,7 +26,7 @@ Here I have implemented the BLoC State Management to control these events.<br>
 <br>
 Here is the Alarm Page View:<br>
 <img src="screenshots/Alarm_page.png" alt="Alarm Page View" height=400 /><br>
-To store all the alarms I used Flutter Local Database Library (SQflite).<br>
+To store all the alarms I used Flutter Local NO-SQL Database Library (Hive).<br>
 And for the notification, I used Flutter Local Notification Library.<br>
 Till Now, These are the features I am working with.<br>
 InShaaAllah, I will finish this project very soon.<br>
