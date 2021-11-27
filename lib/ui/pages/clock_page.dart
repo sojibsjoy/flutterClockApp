@@ -30,7 +30,7 @@ class ClockPage extends StatelessWidget {
       month = getMonth(context, month);
     }
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 64),
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 60),
       alignment: Alignment.center,
       color: CustomColors.pageBackgroundColor,
       child: Column(

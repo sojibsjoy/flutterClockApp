@@ -20,13 +20,14 @@ class AlarmAdapter extends TypeAdapter<Alarm> {
       ..title = fields[0] as String
       ..description = fields[1] as String
       ..isActive = fields[2] as bool
-      ..createdAt = fields[3] as DateTime;
+      ..alarmTime = fields[3] as DateTime
+      ..alarmDays = (fields[4] as List).cast<String>();
   }
 
   @override
   void write(BinaryWriter writer, Alarm obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
@@ -34,7 +35,9 @@ class AlarmAdapter extends TypeAdapter<Alarm> {
       ..writeByte(2)
       ..write(obj.isActive)
       ..writeByte(3)
-      ..write(obj.createdAt);
+      ..write(obj.alarmTime)
+      ..writeByte(4)
+      ..write(obj.alarmDays);
   }
 
   @override

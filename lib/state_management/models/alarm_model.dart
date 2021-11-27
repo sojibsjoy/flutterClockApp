@@ -14,5 +14,8 @@ class Alarm extends HiveObject {
   late bool isActive;
 
   @HiveField(3)
-  late DateTime createdAt;
+  late DateTime alarmTime;
+
+  @HiveField(4)
+  late List<String> alarmDays;
 }
